@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>aiohttp chat</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/reset.min.css" charset="utf-8" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.2/semantic.min.css" charset="utf-8" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.2/semantic.min.js" charset="utf-8"></script>
+		{% block js %}
+		{% endblock %}
+		{% block style %}
+			<style>
+				body {
+				padding: 0;
+				margin: 0;
+				}
+				.form-holder {
+				margin-top: 10%;
+				}
+				.form-head {
+				font-size: 30px;
+				text-transform: uppercase;
+				margin: 15px auto 30px auto;
+				}
+				.remember-me {
+				text-align: left;
+				}
+				.ui.checkbox label {
+				color: #ddd;
+				}
+				.ui.container {
+				padding-top: 1em;
+				}
+			</style>
+		{% endblock %}
+	</head>
+	<body class="ui container">
+		<div class="ui dimmer" id="dimmer">
+			<div class="content">
+				<div class="center">
+					<h2 class="ui inverted icon header" id="dimmer_message"></h2>
+				</div>
+			</div>
+		</div>
+		{% block content %}
+		{% endblock %}
+	</body>
+</html>

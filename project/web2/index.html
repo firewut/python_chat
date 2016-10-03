@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/">
+    <title>Chat</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="systemjs.config.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.2/components/reset.min.css" charset="utf-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.2/semantic.min.css" charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.2/semantic.min.js" charset="utf-8"></script>
+    <script>
+    System.import('app').catch(function(err){ console.error(err); });
+    </script>
+    <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    .form-holder {
+      margin-top: 10%;
+    }
+    .form-head {
+      font-size: 30px;
+      text-transform: uppercase;
+      margin: 15px auto 30px auto;
+    }
+    .remember-me {
+      text-align: left;
+    }
+    .ui.checkbox label {
+      color: #ddd;
+    }
+    .ui.container {
+      padding-top: 1em;
+    }
+    </style>
+  </head>
+  <body class="ui container">
+  <app></app>
+</body>
+</html>

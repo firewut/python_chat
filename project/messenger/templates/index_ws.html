@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block content %}
+	<div class="ui grid">
+		<!-- ROSTER -->
+		<div class="ui four wide column">
+			<div class="ui segments">
+				<div class="ui segment">
+					<div class="ui search">
+						<div class="ui icon input">
+							<input class="prompt" type="text" placeholder="Chat or Contact...">
+							<i class="search icon"></i>
+						</div>
+						<div class="results" id="search_results">
+						</div>
+					</div>
+				</div>
+				<div class="ui segments">
+					<div class="ui very relaxed list">
+						{% for chat in chats %}
+							<div class="item">
+								<img class="ui avatar image" src="">
+								<div class="content">
+									<div class="header">{{ chat.name }}</div>
+									{{ chat.last_message.message }}
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- CHAT CONTENT -->
+		<div class="ui twelve wide column segments">
+			<div class="ui internally celled grid">
+				{% if active_chat %}
+					<div class="row">
+						<div id="messages" class="twelve wide column">
+							<div class="ui middle aligned divided list">
+								{% for message in active_chat.messages %}
+									<div class="item">
+										<img class="ui avatar image" src="{{ message.sender.avatar }}">
+										<div class="content">
+											<div class="header">{{message.sender.name}}</div>
+											{{ message.message }}
+										</div>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+						<div id="members" class="four wide column">
+							<div class="ui middle aligned divided list">
+								{% for member in active_chat.members %}
+									<div class="item">
+										<img class="ui avatar image" src="{{ member.avatar }}">
+										<div class="content">
+											<a class="header">{{ member.name }}</a>
+										</div>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="sixteen column wide" id="div_with_the_form">
+							<form class="" id="message" method="POST">
+								<div class="ui fluid action input">
+									<input type="text" placeholder="Write a Message..." name="message">
+									<button class="ui button">Send</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block js %}
+	<script type="text/javascript">
+		$(function(){
+			$("form#message").submit(function(){
+				send_message();
+				return false;
+			})
+			$("button#send_message").click(function(){
+				send_message();
+				return false;
+			});
+			var send_message = function(){
+				var chat_accept_message_url = "/chats/{{active_chat.id}}"
+				$.ajax({
+					type: "post",
+					url: chat_accept_message_url,
+					data: $('form#message').serialize(),
+					beforeSend: function(){
+					$("#div_with_the_form").toggleClass('loading');
+					},
+					success: function(data, textStatus){
+						$("#div_with_the_form").toggleClass('loading').removeClass('error');
+						location.reload();
+					},
+					error: function(xhr, status, error) {
+						$("#div_with_the_form").toggleClass('loading').addClass('error');
+						$("form#registration div.error").remove();
+						$("div#name_inputs").after("<div class='ui error message'><div class='header'>Error</div><p>"+xhr.responseText+"</p></div>");
+					}
+				});
+			}
+		});
+	</script>
+{% endblock %}

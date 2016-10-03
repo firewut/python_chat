@@ -1,0 +1,23 @@
+<div class="ui one column center aligned grid">
+	<div class="column six wide form-holder">
+		<div class="ui segment">
+			<h2 class="center aligned header form-head">Join Us</h2>
+			
+			<div class="ui form" [ngClass]="{'error': error}">
+				<form #signupForm="ngForm" (ngSubmit)="registerUser(signupForm)">
+					<div class="field" id="name_inputs">
+						<input type="text" name="name" placeholder="Name in Chat" ngModel>
+					</div>
+
+					<div class='ui error message' *ngIf="error">
+						<div class='header'>Error</div>
+						<p>{{ errorMessage }}</p>
+					</div>
+
+					<button class="ui button" type="submit">Submit</button>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>

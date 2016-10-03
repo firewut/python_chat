@@ -1,0 +1,17 @@
+AVATARS = [
+    'http://semantic-ui.com/images/avatar/small/christian.jpg',
+    'http://semantic-ui.com/images/avatar/small/daniel.jpg',
+    'http://semantic-ui.com/images/avatar/small/elliot.jpg',
+    'http://semantic-ui.com/images/avatar/small/helen.jpg',
+    'http://semantic-ui.com/images/avatar/small/jenny.jpg',
+    'http://semantic-ui.com/images/avatar2/small/lena.png',
+    'http://semantic-ui.com/images/avatar2/small/lindsay.png',
+    'http://semantic-ui.com/images/avatar2/small/mark.png',
+    'http://semantic-ui.com/images/avatar/small/matt.jpg',
+    'http://semantic-ui.com/images/avatar2/small/matthew.png',
+    'http://semantic-ui.com/images/avatar2/small/molly.png',
+    'http://semantic-ui.com/images/avatar2/small/rachel.png',
+    'http://semantic-ui.com/images/avatar/small/stevie.jpg',
+    'http://semantic-ui.com/images/avatar/small/tom.jpg',
+    'http://semantic-ui.com/images/avatar/small/veronika.jpg',
+]
